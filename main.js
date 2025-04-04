@@ -27,7 +27,7 @@ function sendinput() {
                     main_div.appendChild(URl)
 
                     let stars = document.createElement("span");
-                    let stars_text = document.createTextNode(`stars ${repos.stargazers_count}`) 
+                    let stars_text = document.createTextNode(`stars ${repos.stargazers_count}`)
 
                     stars.appendChild(stars_text)
                     main_div.appendChild(stars)
@@ -35,7 +35,13 @@ function sendinput() {
                     main_div.className = 'repo-box';
 
                     reposData.appendChild(main_div)
+                });
+            }).catch((reson) => {
+                let Error_div = document.createElement("div")
+                let error_username = document.createTextNode(Error("invalid Username"));
+                Error_div.style.color = "red";
+                Error_div.appendChild(error_username);
+                reposData.appendChild(Error_div)
             });
-        })
     } 
 }
